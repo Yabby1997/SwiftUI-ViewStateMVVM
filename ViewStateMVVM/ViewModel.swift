@@ -17,19 +17,22 @@ protocol ViewModel: ObservableObject where ObjectWillChangePublisher.Output == V
     func trigger(_ input: Input)
 }
 
-final class AnyViewModel<State, Input>: ObservableObject {
-    private let wrappedObjectWillChange: () -> AnyPublisher<Void, Never>
+final class AnyViewModel<State, Input>: ViewModel {
     private let wrappedState: () -> State
     private let wrappedTrigger: (Input) -> Void
+    private var stateObserver: AnyCancellable?
 
-    var objectWillChange: some Publisher { wrappedObjectWillChange() }
     var state: State { wrappedState() }
 
     init<V: ViewModel>(_ viewModel: V) where V.State == State, V.Input == Input {
-        self.wrappedObjectWillChange = { viewModel.objectWillChange.eraseToAnyPublisher() }
         self.wrappedState = { viewModel.state }
-        self.wrappedTrigger = viewModel.trigger
+        self.wrappedTrigger = viewModel.trigger(_:)
+        self.stateObserver = viewModel.objectWillChange.sink { [weak self] in
+            self?.objectWillChange.send()
+        }
     }
 
-    func trigger(_ input: Input) { wrappedTrigger(input) }
+    func trigger(_ input: Input) {
+        wrappedTrigger(input)
+    }
 }

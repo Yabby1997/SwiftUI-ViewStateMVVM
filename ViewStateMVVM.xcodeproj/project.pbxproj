@@ -16,6 +16,7 @@
 		CE9EB7DC28E96CC300B51BD7 /* URLRequestDataSourceLayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9EB7D828E96CC300B51BD7 /* URLRequestDataSourceLayer.xcframework */; };
 		CE9EB7DD28E96CC300B51BD7 /* GiphyDomainLayer.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9EB7D928E96CC300B51BD7 /* GiphyDomainLayer.xcframework */; };
 		CE9EB7E128E96EDD00B51BD7 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EB7E028E96EDD00B51BD7 /* ViewModel.swift */; };
+		CE9EB7E528E974EF00B51BD7 /* GiphySearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9EB7E428E974EF00B51BD7 /* GiphySearchViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		CE9EB7D828E96CC300B51BD7 /* URLRequestDataSourceLayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = URLRequestDataSourceLayer.xcframework; sourceTree = "<group>"; };
 		CE9EB7D928E96CC300B51BD7 /* GiphyDomainLayer.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; path = GiphyDomainLayer.xcframework; sourceTree = "<group>"; };
 		CE9EB7E028E96EDD00B51BD7 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		CE9EB7E428E974EF00B51BD7 /* GiphySearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiphySearchViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +71,7 @@
 				CE9EB7C728E96C9700B51BD7 /* ViewStateMVVMApp.swift */,
 				CE9EB7C928E96C9700B51BD7 /* ContentView.swift */,
 				CE9EB7E028E96EDD00B51BD7 /* ViewModel.swift */,
+				CE9EB7E428E974EF00B51BD7 /* GiphySearchViewModel.swift */,
 				CE9EB7CB28E96C9800B51BD7 /* Assets.xcassets */,
 				CE9EB7CD28E96C9800B51BD7 /* Preview Content */,
 			);
@@ -164,6 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9EB7E528E974EF00B51BD7 /* GiphySearchViewModel.swift in Sources */,
 				CE9EB7CA28E96C9700B51BD7 /* ContentView.swift in Sources */,
 				CE9EB7E128E96EDD00B51BD7 /* ViewModel.swift in Sources */,
 				CE9EB7C828E96C9700B51BD7 /* ViewStateMVVMApp.swift in Sources */,

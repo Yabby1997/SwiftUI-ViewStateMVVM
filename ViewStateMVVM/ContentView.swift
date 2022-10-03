@@ -8,12 +8,23 @@
 import SwiftUI
 
 struct ContentView: View {
+
+    @EnvironmentObject var viewModel: AnyViewModel<GiphySearchState, GiphySearchInput>
+
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            HStack {
+                Button("spongebob") {
+                    viewModel.trigger(.search(query: "spongebob"))
+                }
+                Spacer()
+                Button("clear") {
+                    viewModel.trigger(.clear)
+                }
+            }
+            ForEach(viewModel.state.giphies, id: \.name) { item in
+                Text(item.name)
+            }
         }
         .padding()
     }
