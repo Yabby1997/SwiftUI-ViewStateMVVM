@@ -1,6 +1,6 @@
 //
-//  ViewStateMVVMApp.swift
-//  ViewStateMVVM
+//  GiphySwiftUIApp.swift
+//  GiphySwiftUI
 //
 //  Created by USER on 2022/10/02.
 //
@@ -11,7 +11,7 @@ import GiphyDataLayer
 import URLRequestDataSourceLayer
 
 @main
-struct ViewStateMVVMApp: App {
+struct GiphySwiftUIApp: App {
     var body: some Scene {
 
         let networkService = URLRequestBuilderNetworkService()
@@ -26,7 +26,7 @@ struct ViewStateMVVMApp: App {
         )
 
         WindowGroup {
-            ContentView().environmentObject(AnyViewModel(giphySearchViewModel))
+            GiphySearchView().environmentObject(AnyViewModel(giphySearchViewModel))
         }
     }
 }

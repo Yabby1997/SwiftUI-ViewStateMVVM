@@ -1,6 +1,6 @@
 //
 //  GiphySearchViewModel.swift
-//  ViewStateMVVM
+//  GiphySwiftUI
 //
 //  Created by USER on 2022/10/02.
 //

@@ -1,13 +1,13 @@
 //
-//  ContentView.swift
-//  ViewStateMVVM
+//  GiphySearchView.swift
+//  GiphySwiftUI
 //
 //  Created by USER on 2022/10/02.
 //
 
 import SwiftUI
 
-struct ContentView: View {
+struct GiphySearchView: View {
 
     @EnvironmentObject var viewModel: AnyViewModel<GiphySearchState, GiphySearchInput>
 
@@ -30,8 +30,8 @@ struct ContentView: View {
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
+struct GiphySearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        GiphySearchView()
     }
 }
