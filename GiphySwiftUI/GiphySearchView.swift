@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import NukeUI
 
 struct GiphySearchView: View {
 
@@ -14,19 +15,30 @@ struct GiphySearchView: View {
     var body: some View {
         VStack {
             HStack {
-                Button("spongebob") {
+                Button("Search") {
                     viewModel.trigger(.search(query: "spongebob"))
                 }
-                Spacer()
-                Button("clear") {
+                Button("Clear") {
                     viewModel.trigger(.clear)
                 }
             }
-            ForEach(viewModel.state.giphies, id: \.name) { item in
-                Text(item.name)
+            .padding()
+            ScrollView(showsIndicators: true) {
+                LazyVGrid(
+                    columns: [
+                        GridItem(.flexible(), spacing: 1),
+                        GridItem(.flexible(), spacing: 1),
+                        GridItem(.flexible(), spacing: 1),
+                    ],
+                    spacing: 1
+                ) {
+                    ForEach(viewModel.state.giphies, id: \.name) { giphy in
+                        LazyImage(url: giphy.originalUrl)
+                            .scaledToFit()
+                    }
+                }
             }
         }
-        .padding()
     }
 }
 
