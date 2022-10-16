@@ -32,6 +32,6 @@ struct GiphySearchView: View {
 
 struct GiphySearchView_Previews: PreviewProvider {
     static var previews: some View {
-        GiphySearchView()
+        GiphySearchView().environmentObject(AnyViewModel(GiphySearchMockViewModel(state: GiphySearchState())))
     }
 }
