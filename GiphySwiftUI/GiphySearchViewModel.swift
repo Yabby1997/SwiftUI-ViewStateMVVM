@@ -17,7 +17,6 @@ enum GiphySearchInput {
     case clear
 }
 
-@MainActor
 final class GiphySearchViewModel: ViewModel {
     typealias State = GiphySearchState
     typealias Input = GiphySearchInput
@@ -45,7 +44,10 @@ final class GiphySearchViewModel: ViewModel {
 
     private func search(_ query: String) {
         Task {
-            state.giphies = try await giphyUseCase.search(query: query)
+            let searchResults = try await giphyUseCase.search(query: query)
+            await MainActor.run {
+                state.giphies = searchResults
+            }
         }
     }
 
